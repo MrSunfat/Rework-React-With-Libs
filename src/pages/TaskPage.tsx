@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Key, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask, removeTask, RootState } from '../stores';
 
@@ -19,10 +19,10 @@ const Task = () => {
     return (
         <div>
         <h2>Tasks:</h2>
-        { tasks.map((item, index) => <div key={index}>{item}</div>) }
+        { tasks.map((item: String, index: Key) => <div key={index}>{item}</div>) }
         <input type="text" value={query} onChange={(e)=> { setQuery(e.target.value)}}/>
         <button onClick={()=>handleAddNewTask(query)}>Add New Task</button>
-        <button onClick={()=>handleRemoveTaks}>Remove Task</button>
+        <button onClick={()=>handleRemoveTaks()}>Remove Task</button>
         </div>
     );
 };
